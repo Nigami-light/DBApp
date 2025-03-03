@@ -28,8 +28,7 @@ namespace DBApp
 
         private void LoadGroupData()
         {
-            var group = _dbContext.Groupes.ToList();
-            GroupsDG.ItemsSource = group;
+            GroupsDG.ItemsSource = _dbContext.Groupes.ToList();
         }
     }
 }

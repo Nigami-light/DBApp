@@ -28,8 +28,7 @@ namespace DBApp
 
         private void LoadSubjectData()
         {
-            var subject = _dbContext.Subjects.ToList();
-            SubjectsDG.ItemsSource = subject;
+            SubjectsDG.ItemsSource = _dbContext.Subjects.ToList();
         }
     }
 }

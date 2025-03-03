@@ -28,9 +28,9 @@
             </Grid.RowDefinitions>
 
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-                <Button x:Name="AddBTN" Content="Add" Margin="10" Width="100"/>
-                <Button x:Name="RemoveBTN" Content="Remove" Margin="10" Width="100"/>
-                <Button x:Name="EditBTN" Content="Edit" Margin="10" Width="100" />
+                <Button x:Name="AddBTN" Content="Add" Margin="10" Width="100" Click="AddBTN_Click"/>
+                <Button x:Name="RemoveBTN" Content="Remove" Margin="10" Width="100" Click="RemoveBTN_Click"/>
+                <Button x:Name="EditBTN" Content="Edit" Margin="10" Width="100" Click="EditBTN_Click"/>
             </StackPanel>
 
             <Frame x:Name="CurrentContent" NavigationUIVisibility="Hidden" Grid.Row="1"/>

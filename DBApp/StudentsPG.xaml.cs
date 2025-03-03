@@ -28,8 +28,8 @@ namespace DBApp
         }
         private void LoadStudentData()
         {
-            var students = _dbContext.Students.ToList();
-            StudentsDG.ItemsSource = students;
+            StudentsDG.ItemsSource = _dbContext.Students.ToList();
         }
+
     }
 }

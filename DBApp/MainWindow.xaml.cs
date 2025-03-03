@@ -17,7 +17,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-    }
+    } 
 
     private void ShowStudentsPG(object sender, RoutedEventArgs e)
     {
@@ -37,5 +37,25 @@ public partial class MainWindow : Window
     private void ShowGroupsPG(object sender, RoutedEventArgs e)
     {
         CurrentContent.Navigate(new GroupsPG());
+    }
+
+    private TableShowInterface GetCurrentPage()
+    {
+        return CurrentContent.Content as TableShowInterface;
+    }
+
+    private void AddBTN_Click(object sender, RoutedEventArgs e)
+    {
+        GetCurrentPage()?.AddItem();
+    }
+
+    private void RemoveBTN_Click(object sender, RoutedEventArgs e)
+    {
+        GetCurrentPage()?.RemoveItem();
+    }
+
+    private void EditBTN_Click(object sender, RoutedEventArgs e)
+    {
+        GetCurrentPage()?.EditItem();
     }
 }

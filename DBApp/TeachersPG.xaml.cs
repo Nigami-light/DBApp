@@ -28,8 +28,7 @@ namespace DBApp
 
         private void LoadTeacherData()
         {
-            var teacher = _dbContext.Teachers.ToList();
-            TeachersDG.ItemsSource = teacher;
+            TeachersDG.ItemsSource = _dbContext.Teachers.ToList();
         }   
     }
 }
