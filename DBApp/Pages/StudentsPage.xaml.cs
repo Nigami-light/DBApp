@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DBApp.dbEntityClasses;
+using DBApp.Windows;
 
 namespace DBApp.Pages
 {
@@ -21,6 +23,7 @@ namespace DBApp.Pages
     public partial class StudentsPage : Page
     {
         readonly Database database = new();
+        Student student = new();
         public StudentsPage()
         {
             InitializeComponent();
@@ -37,6 +40,50 @@ namespace DBApp.Pages
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Add_btn_Click(object sender, RoutedEventArgs e)
+        {
+            AddStudent addWindow = new();
+            addWindow.ShowDialog();
+            LoadStudentData();
+        }
+
+        private void Remove_btn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedStudent = StudentsDG.SelectedItem as Student;
+
+            if (selectedStudent != null)
+            {
+                var result = MessageBox.Show($"Удалить студента {selectedStudent.FirstName} {selectedStudent.LastName}?",
+                                             "Подтверждение удаления",
+                                             MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        database.DeleteStudent(selectedStudent.StudentID); // вызываем метод для удаления
+                        LoadStudentData(); // обновляем DataGrid
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка при удалении: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите студента для удаления.");
+            }
+        }
+
+        private void StudentsDG_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "StudentID")
+            {
+                e.Cancel = true; // отменяет генерацию столбца
             }
         }
     }

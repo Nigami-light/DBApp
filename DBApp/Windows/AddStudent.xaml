@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DBApp.Windows"
         mc:Ignorable="d"
-        Title="AddStudent" Height="450" Width="800">
+        Title="AddStudent" Height="350" Width="350">
     <Grid>
-        
+        <StackPanel>
+            
+            <TextBlock Text="Имя" Margin="5"/>
+            <TextBox x:Name="FirstNameTB" Margin="5" Height="30"/>
+            <TextBlock Text="Фамилия" Margin="5"/>
+            <TextBox x:Name="LastNameTB" Margin="5" Height="30"/>
+            <TextBlock Text="Дата рождения" Margin="5"/>
+            <DatePicker Name="BirthDateDB" Margin="5" Height="30"/>
+            <TextBlock Text="Email" Margin="5"/>
+            <TextBox x:Name="EmailTB" Margin="5" Height="30"/>
+
+            <Button x:Name="AddStudentBtn" Content="Добавить" Height="30" Width="160" Margin="15" Click="AddStudentBtn_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
