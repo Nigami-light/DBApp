@@ -19,6 +19,18 @@
     <Compile Update="Pages\TeachersPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Windows\AddGroup.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\AddStudent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\AddSubject.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Windows\AddTeacher.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
@@ -34,6 +46,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\TeachersPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\AddGroup.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\AddStudent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\AddSubject.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\AddTeacher.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

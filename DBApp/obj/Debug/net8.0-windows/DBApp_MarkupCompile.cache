@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\root\source\repos\DBApp\DBApp\App.xaml
-5-2032505445
+92095316707
 
-13-1456484347
+17-938557508
 206102752553
-MainWindow.xaml;Pages\GroupsPage.xaml;Pages\StudentsPage.xaml;Pages\SubjectsPage.xaml;Pages\TeachersPage.xaml;
+MainWindow.xaml;Pages\GroupsPage.xaml;Pages\StudentsPage.xaml;Pages\SubjectsPage.xaml;Pages\TeachersPage.xaml;Windows\AddGroup.xaml;Windows\AddStudent.xaml;Windows\AddSubject.xaml;Windows\AddTeacher.xaml;
 
 False
 

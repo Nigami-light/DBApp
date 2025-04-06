@@ -9,6 +9,16 @@
       Title="StudentsPage">
 
     <Grid>
-        <TextBlock Text="Студенты"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" >
+            <Button x:Name="Add_btn" Content="Добавить" Margin="10" Width="100" Background="LightGreen"/>
+            <Button x:Name="Remove_btn" Content="Удалить" Margin="10" Width="100" Background="IndianRed"/>
+        </StackPanel>
+
+        <DataGrid x:Name="StudentsDG"/>
     </Grid>
 </Page>

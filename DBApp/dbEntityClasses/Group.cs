@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DBApp.dbClasses
+namespace DBApp.dbEntityClasses
 {
-    public class Groups
+    public class Group
     {
         public string GroupName { get; set; }
     }

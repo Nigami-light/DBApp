@@ -20,9 +20,23 @@ namespace DBApp.Pages
     /// </summary>
     public partial class TeachersPage : Page
     {
+        readonly Database database = new();
         public TeachersPage()
         {
             InitializeComponent();
+            LoadTeacherData();
+        }
+        private void LoadTeacherData()
+        {
+            try
+            {
+                var teachers = database.GetTeachers();
+                TeachersDG.ItemsSource = teachers;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

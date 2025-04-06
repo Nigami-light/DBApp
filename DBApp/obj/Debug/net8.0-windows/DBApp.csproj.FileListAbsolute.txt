@@ -44,3 +44,12 @@ C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Pages\GroupsPage
 C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Pages\StudentsPage.baml
 C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Pages\SubjectsPage.baml
 C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Pages\TeachersPage.baml
+C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Windows\AddGroup.g.cs
+C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Windows\AddStudent.g.cs
+C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Windows\AddSubject.g.cs
+C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Windows\AddTeacher.g.cs
+C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Windows\AddGroup.baml
+C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Windows\AddStudent.baml
+C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Windows\AddSubject.baml
+C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\Windows\AddTeacher.baml
+C:\Users\root\source\repos\DBApp\DBApp\obj\Debug\net8.0-windows\DBApp.sourcelink.json

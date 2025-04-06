@@ -20,9 +20,24 @@ namespace DBApp.Pages
     /// </summary>
     public partial class GroupsPage : Page
     {
+        readonly Database database = new();
         public GroupsPage()
         {
             InitializeComponent();
+            LoadGroupData();
+        }
+
+        private void LoadGroupData()
+        {
+            try
+            {
+                var groups = database.GetGroups();
+                GroupsDG.ItemsSource = groups;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -20,9 +20,24 @@ namespace DBApp.Pages
     /// </summary>
     public partial class SubjectsPage : Page
     {
+        Database database = new();
         public SubjectsPage()
         {
             InitializeComponent();
+            LoadSubjectData();
+        }
+
+        private void LoadSubjectData()
+        {
+            try
+            {
+                var subjects = database.GetSubjects();
+                SubjectsDG.ItemsSource = subjects;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
