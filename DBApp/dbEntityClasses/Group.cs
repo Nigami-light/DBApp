@@ -10,5 +10,7 @@ namespace DBApp.dbEntityClasses
     {
         public int GroupID { get; set; }
         public string GroupName { get; set; }
+
     }
+    
 }

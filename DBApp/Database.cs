@@ -236,5 +236,17 @@ namespace DBApp
             cmd.ExecuteNonQuery();
             connection.Close();
         }
+
+        public void DeleteGroup(int groupId)
+        {
+            string query = "DELETE FROM groupes WHERE GroupID = @id";
+
+            MySqlCommand cmd = new(query, connection);
+            cmd.Parameters.AddWithValue("@id", groupId);
+
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

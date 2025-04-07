@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DBApp.dbEntityClasses;
 
 namespace DBApp.Windows
 {
@@ -39,6 +40,16 @@ namespace DBApp.Windows
             }
 
             database.AddGroup(name);
+
+            DBApp.dbEntityClasses.Group group = new()
+            {
+                GroupName = name
+            };
+
+            MessageBox.Show("Группа добавлена успешно");
+
+            this.DialogResult = true;
+            Close();
         }
     }
 }
