@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DBApp.dbEntityClasses;
+using DBApp.Windows;
 
 namespace DBApp.Pages
 {
@@ -38,5 +40,49 @@ namespace DBApp.Pages
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Add_btn_Click(object sender, RoutedEventArgs e)
+        {
+            AddTeacher addWindow = new();
+            addWindow.ShowDialog();
+            LoadTeacherData();
+        }
+        
+        private void Remove_btn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedTeacher = TeachersDG.SelectedItem as Teacher;
+
+            if (selectedTeacher != null)
+            {
+                var result = MessageBox.Show($"Удалить студента {selectedTeacher.FirstName} {selectedTeacher.LastName}?",
+                                             "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        database.DeleteTeacher(selectedTeacher.TeacherID);
+                        LoadTeacherData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка при удалении: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите преподавателя для удаления");
+            }
+
+        }
+
+        private void TeachersDG_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "TeacherID")
+                e.Cancel = true;
+        }
+
+        
     }
 }

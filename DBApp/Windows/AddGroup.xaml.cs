@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,9 +21,24 @@ namespace DBApp.Windows
     /// </summary>
     public partial class AddGroup : Window
     {
+        readonly public Database database = new();
+
         public AddGroup()
         {
             InitializeComponent();
+        }
+
+        private void AddGroup_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string name = NameTB.Text;
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                MessageBox.Show("Имя не может быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
+            database.AddGroup(name);
         }
     }
 }

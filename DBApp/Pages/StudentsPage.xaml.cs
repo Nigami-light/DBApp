@@ -23,7 +23,6 @@ namespace DBApp.Pages
     public partial class StudentsPage : Page
     {
         readonly Database database = new();
-        Student student = new();
         public StudentsPage()
         {
             InitializeComponent();
@@ -57,8 +56,7 @@ namespace DBApp.Pages
             if (selectedStudent != null)
             {
                 var result = MessageBox.Show($"Удалить студента {selectedStudent.FirstName} {selectedStudent.LastName}?",
-                                             "Подтверждение удаления",
-                                             MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                                             "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
                 if (result == MessageBoxResult.Yes)
                 {
@@ -81,10 +79,8 @@ namespace DBApp.Pages
 
         private void StudentsDG_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
         {
-            if (e.PropertyName == "StudentID")
-            {
-                e.Cancel = true; // отменяет генерацию столбца
-            }
-        }
+            if (e.PropertyName == "StudentID") 
+                e.Cancel = true;
+        }   
     }
 }

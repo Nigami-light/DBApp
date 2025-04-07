@@ -57,10 +57,7 @@ namespace DBApp.Windows
                 return;
             }
 
-
-
-
-                database.AddStudent(firstName, lastName, birthDate, email);
+            database.AddStudent(firstName, lastName, birthDate, email);
 
             Student student = new()
             {
@@ -72,18 +69,8 @@ namespace DBApp.Windows
 
             MessageBox.Show("Студент добавлен успешно");
 
-            ClearFields();
-
             this.DialogResult = true;
             Close();
-        }
-
-        private void ClearFields()
-        {
-            FirstNameTB.Text = string.Empty;
-            LastNameTB.Text = string.Empty;
-            BirthDateDB = null;
-            EmailTB = null;
         }
     }
 }

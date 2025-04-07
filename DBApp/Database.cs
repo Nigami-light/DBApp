@@ -63,6 +63,7 @@ namespace DBApp
             {
                 Teacher teacher = new()
                 {
+                    TeacherID = Convert.ToInt32(reader["TeacherID"]),
                     FirstName = reader["FirstName"].ToString(),
                     LastName = reader["LastName"].ToString(),
                     Email = reader["Email"].ToString()
@@ -93,6 +94,7 @@ namespace DBApp
             {
                 Group group = new()
                 {
+                    GroupID = Convert.ToInt32(reader["GroupID"]),
                     GroupName = reader["GroupName"].ToString()
                 };
 
@@ -121,6 +123,7 @@ namespace DBApp
             {
                 Subject subject = new()
                 {
+                    SubjectID = Convert.ToInt32(reader["SubjectID"]),
                     SubjectName = reader["SubjectName"].ToString()
                 };
 
@@ -161,6 +164,55 @@ namespace DBApp
             }
         }
 
+        public void AddTeacher(string firstName, string lastName, string email)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "INSERT INTO teachers (FirstName, LastName, Email) VALUES (@FirstName, @LastName, @Email)";
+
+                MySqlCommand cmd = new(query, connection);
+
+                cmd.Parameters.Add("@FirstName", MySqlDbType.VarChar).Value = firstName;
+                cmd.Parameters.Add("@LastName", MySqlDbType.VarChar).Value = lastName;
+                cmd.Parameters.Add("@Email", MySqlDbType.VarChar).Value = email;
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+        public void AddGroup(string groupName)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "INSERT INTO groupes (GroupName) VALUES (@GroupName)";
+
+                MySqlCommand cmd = new(query, connection);
+
+                cmd.Parameters.Add("@GroupName", MySqlDbType.VarChar).Value = groupName;
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
         public void DeleteStudent(int studentId)
         {
             string query = "DELETE FROM students WHERE StudentID = @id";
@@ -173,5 +225,16 @@ namespace DBApp
             connection.Close();
         }
 
+        public void DeleteTeacher(int teacherId)
+        {
+            string query = "DELETE FROM teachers WHERE TeacherID = @id";
+
+            MySqlCommand cmd = new(query, connection);
+            cmd.Parameters.AddWithValue("@id", teacherId);
+
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

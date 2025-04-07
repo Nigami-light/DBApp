@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DBApp.Windows"
         mc:Ignorable="d"
-        Title="AddGroup" Height="450" Width="800">
+        Title="AddGroup" Height="350" Width="350">
     <Grid>
-        
+        <StackPanel>
+
+            <TextBlock Text="Имя группы" Margin="5"/>
+            <TextBox x:Name="NameTB" Margin="5" Height="30"/>
+
+            <Button x:Name="AddGroup_btn" Content="Добавить" Height="30" Width="160" Margin="15" Click="AddGroup_btn_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
