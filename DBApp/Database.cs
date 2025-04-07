@@ -46,7 +46,6 @@ namespace DBApp
 
             return studentslst;
         }
-
         public List<Teacher> GetTeachers()
         {
             List<Teacher> teacherslst = [];
@@ -77,7 +76,6 @@ namespace DBApp
 
             return teacherslst;
         }
-
         public List<Group> GetGroups()
         {
             List<Group> groupslst = [];
@@ -106,7 +104,6 @@ namespace DBApp
 
             return groupslst;
         }
-
         public List<Subject> GetSubjects()
         {
             List<Subject> subjectlst = [];
@@ -163,7 +160,6 @@ namespace DBApp
                 connection.Close();
             }
         }
-
         public void AddTeacher(string firstName, string lastName, string email)
         {
             try
@@ -212,6 +208,29 @@ namespace DBApp
                 connection.Close();
             }
         }
+        public void AddSubject (string subjectName)
+        {
+            try
+            {
+                connection.Open();
+
+                string query = "INSERT INTO subjects (SubjectName) VALUES (@SubjectName)";
+
+                MySqlCommand cmd = new(query, connection);
+
+                cmd.Parameters.Add("@SubjectName", MySqlDbType.VarChar).Value = subjectName;
+
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
         public void DeleteStudent(int studentId)
         {
@@ -224,7 +243,6 @@ namespace DBApp
             cmd.ExecuteNonQuery();
             connection.Close();
         }
-
         public void DeleteTeacher(int teacherId)
         {
             string query = "DELETE FROM teachers WHERE TeacherID = @id";
@@ -236,13 +254,23 @@ namespace DBApp
             cmd.ExecuteNonQuery();
             connection.Close();
         }
-
         public void DeleteGroup(int groupId)
         {
             string query = "DELETE FROM groupes WHERE GroupID = @id";
 
             MySqlCommand cmd = new(query, connection);
             cmd.Parameters.AddWithValue("@id", groupId);
+
+            connection.Open();
+            cmd.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void DeleteSubject(int subjectId)
+        {
+            string query = "DELETE FROM Subjects WHERE SubjectID = @id";
+
+            MySqlCommand cmd = new(query, connection);
+            cmd.Parameters.AddWithValue("@id", subjectId);
 
             connection.Open();
             cmd.ExecuteNonQuery();

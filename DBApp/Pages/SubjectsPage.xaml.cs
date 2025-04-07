@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DBApp.Windows;
+using DBApp.dbEntityClasses;
 
 namespace DBApp.Pages
 {
@@ -38,6 +40,47 @@ namespace DBApp.Pages
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Add_btn_Click(object sender, RoutedEventArgs e)
+        {
+            AddSubject addWindow = new();
+            addWindow.ShowDialog();
+            LoadSubjectData();
+        }
+
+        private void Remove_btn_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedSubject = SubjectsDG.SelectedItem as Subject;
+
+            if (selectedSubject != null)
+            {
+                var result = MessageBox.Show($"Удалить предмет {selectedSubject.SubjectName}?",
+                                             "Подтверждение удаления", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        database.DeleteSubject(selectedSubject.SubjectID);
+                        LoadSubjectData();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Ошибка при удалении: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите преподавателя для удаления");
+            }
+        }
+
+        private void SubjectsDG_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "SubjectID") 
+                e.Cancel = true;
         }
     }
 }

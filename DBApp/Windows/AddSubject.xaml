@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DBApp.Windows"
         mc:Ignorable="d"
-        Title="AddSubject" Height="450" Width="800">
+        Title="AddSubject" Height="350" Width="350">
     <Grid>
-        
+        <StackPanel>
+
+            <TextBlock Text="Имя предмета" Margin="5"/>
+            <TextBox x:Name="NameTB" Margin="5" Height="30"/>
+
+            <Button x:Name="AddSubject_btn" Content="Добавить" Height="30" Width="160" Margin="15" Click="AddSubject_btn_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
